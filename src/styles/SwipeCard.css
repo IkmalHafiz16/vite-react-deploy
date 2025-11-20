@@ -1,0 +1,85 @@
+.swipe-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  user-select: none;
+}
+
+.swipe-card.is-top {
+  cursor: grab;
+  z-index: 10;
+}
+
+.swipe-card.is-top:active {
+  cursor: grabbing;
+}
+
+.swipe-card:not(.is-top) {
+  z-index: 0;
+}
+
+.swipe-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(var(--card));
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.2);
+}
+
+.swipe-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-drag: none;
+  -webkit-user-drag: none;
+}
+
+.swipe-card-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.swipe-card-overlay.like {
+  background-color: hsl(var(--like) / 0.8);
+}
+
+.swipe-card-overlay.dislike {
+  background-color: hsl(var(--dislike) / 0.8);
+}
+
+.swipe-card-overlay-content {
+  background-color: hsl(var(--like-foreground));
+  color: hsl(var(--like));
+  font-weight: 700;
+  font-size: 3rem;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  border: 4px solid hsl(var(--like));
+}
+
+.swipe-card-overlay.like .swipe-card-overlay-content-wrapper {
+  transform: rotate(-20deg);
+}
+
+.swipe-card-overlay.dislike .swipe-card-overlay-content {
+  background-color: hsl(var(--dislike-foreground));
+  color: hsl(var(--dislike));
+  border-color: hsl(var(--dislike));
+}
+
+.swipe-card-overlay.dislike .swipe-card-overlay-content-wrapper {
+  transform: rotate(20deg);
+}
+
+@media (min-width: 768px) {
+  .swipe-card-overlay-content {
+    font-size: 4.5rem;
+  }
+}
