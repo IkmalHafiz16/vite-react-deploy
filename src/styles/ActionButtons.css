@@ -1,0 +1,87 @@
+.action-buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  z-index: 1;
+}
+
+.action-button {
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-button:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.action-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.action-button.dislike {
+  width: 4rem;
+  height: 4rem;
+  background-color: hsl(var(--dislike));
+}
+
+.action-button.dislike:hover:not(:disabled) {
+  background-color: hsl(var(--dislike) / 0.9);
+}
+
+.action-button.like {
+  width: 4rem;
+  height: 4rem;
+  background-color: hsl(var(--like));
+}
+
+.action-button.like:hover:not(:disabled) {
+  background-color: hsl(var(--like) / 0.9);
+}
+
+.action-button-icon.dislike {
+  width: 2rem;
+  height: 2rem;
+  color: hsl(var(--dislike-foreground));
+}
+
+.action-button-icon.like {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: hsl(var(--like-foreground));
+  fill: currentColor;
+}
+
+@media (min-width: 768px) {
+  .action-buttons-container {
+    gap: 2rem;
+  }
+  
+  .action-button.dislike {
+    width: 5rem;
+    height: 5rem;
+  }
+  
+  .action-button.like {
+    width: 5rem;
+    height: 5rem;
+  }
+  
+  .action-button-icon.dislike {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .action-button-icon.like {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
